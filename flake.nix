@@ -26,6 +26,7 @@
           self',
           pkgs,
           config,
+          lib,
           ...
         }:
         {
@@ -33,6 +34,7 @@
           packages.default = self'.packages.filesort;
 
           devenv.shells.default = {
+            languages.go.enable = lib.mkForce false;
             mydevenvs = {
               go.enable = true;
               nix = {
